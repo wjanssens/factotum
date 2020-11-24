@@ -65,7 +65,7 @@
     - Scl: randomness (first x1 never randomized, other 7 outputs are)
     - Off:
     - out: x1, xA, xB, xC, x1, /C, /B, /A
-    - clk: x1 (overrides Frq when patched)
+    - clk: frequency (overrides Frq when patched)
     - v/o:
     - scl:
     
