@@ -62,10 +62,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="175.8016"
-     inkscape:cy="272.30867"
+     inkscape:cx="-236.09321"
+     inkscape:cy="292.02312"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer4"
      showgrid="false"
      units="mm"
      inkscape:snap-bbox="true"
@@ -94,12 +94,12 @@
        spacingy="1.2700002"
        empspacing="4" />
     <sodipodi:guide
-       position="26.361304,125.50025"
+       position="5.1681616,125.49571"
        orientation="0,-1"
        id="guide1558"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="7.5092676,126.12396"
+       position="7.4504783,129.75222"
        orientation="1,0"
        id="guide1560"
        inkscape:locked="false" />
@@ -109,23 +109,14 @@
        id="guide1562"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="43.301381,-2.8821114"
+       position="43.012943,129.28415"
        orientation="1,0"
        id="guide1564"
-       inkscape:locked="false" />
-    <sodipodi:guide
-       position="65.991892,95.055758"
-       orientation="1,0"
-       id="guide1705"
        inkscape:locked="false" />
     <sodipodi:guide
        position="40.640009,82.780007"
        orientation="0,-1"
        id="guide2185" />
-    <sodipodi:guide
-       position="-20.108335,82.780012"
-       orientation="1,0"
-       id="guide1618" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -521,27 +512,27 @@
     <circle
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path1567"
-       cx="7.5092669"
-       cy="2.9997649"
-       r="1.5" />
+       cx="7.4504776"
+       cy="3.0043049"
+       r="1.6" />
     <circle
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path1567-3"
-       cx="43.301376"
-       cy="2.9997649"
-       r="1.5" />
+       cx="43.012939"
+       cy="3.0043049"
+       r="1.6" />
     <circle
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path1567-1"
-       cx="43.301376"
+       cx="43.012939"
        cy="125.5004"
-       r="1.5" />
+       r="1.6" />
     <circle
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path1567-4"
-       cx="7.5092669"
+       cx="7.4504776"
        cy="125.5004"
-       r="1.5" />
+       r="1.6" />
     <circle
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path1903"
