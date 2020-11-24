@@ -5,7 +5,7 @@
     - Off: offset (-2V - +2V)
     - led: shift register state
     - out: v/oct, 1, 2, 4, 1+2, 2+4, 4+7, 1+2+4+7
-    - clk: sample
+    - clk: shift
     - v/o: randomness
     - scl: reset
     - note: v/oct is the 8 bit value of the shift register
@@ -45,7 +45,7 @@
     - led: 
     - out: root, third, fifth, seventh, arp up, arp down, arp random, ?
     - clk: s&h / arpeggiate
-    - v/o: v/oct (overrides Frq when patched)
+    - v/o: v/oct (additive with Frq)
     - scl: scale
     
 5. Quantizer
@@ -57,7 +57,7 @@
     - out: v/oct, gate, /2, /2, /4, /4, /8, /8 ???
     - clk: s&h
     - v/o: v/oct
-    - scl: scale (overrides Scl when patched)
+    - scl: scale (additive with Scl)
 
 6. Clock / Multiplier / Divider
     - Frq: frequency (30 - 300 BPM)
@@ -65,13 +65,13 @@
     - Scl: randomness (first x1 never randomized, other 7 outputs are)
     - Off:
     - out: x1, xA, xB, xC, x1, /C, /B, /A
-    - clk: frequency (overrides Frq when patched)
+    - clk: frequency (additive with Frq)
     - v/o:
     - scl:
     
 7. Shift Register / Gray Code / Counter
     - Frq: 
-    - Sel: shift, [ reflected, balanced, monotonic, snake, singletrack ], [ unary, binary ], noise
+    - Sel: shift, [ reflected, balanced, monotonic, snake, singletrack ], [ unary, binary ], ??
     - Scl: randomness
     - Off: 
     - led: shift register / counter state
@@ -87,13 +87,13 @@
     - inspiration: Nano ONA
     - Frq: frequency: 20 Hz - 40 kHz
     - Sel: octave 0-7
-    - Scl: +/- 7 semitones
-    - Off: pw
+    - Scl: pw
+    - Off: +/- 7 semitones
     - led: output voltage (+5 red, -5 green)
     - out: sine, triangle, sawtooth, pulse, complex 1, complex 2, sub-1 octave, sub-2 octave
     - clk: sync (reset the oscillator phase)
     - v/o: v/oct
-    - off: pw
+    - scl: pw (additive with Scl)
     
 9. 4-step sequencer
     - inspiration: NLC 4-step sequencer
@@ -102,10 +102,10 @@
     - Scl: x3/y0
     - Off: x2/y1
     - led:
-    - out: out, outx, outy, ?, /2, /4, /8, /16
-    - clk: s&h
+    - out: out, outx, outy, eoc??, /2, /4, /8, /16
+    - clk: s&h, advance
     - v/o: up/down
-    - off: 
+    - scl: 
 
 C1: -3V
 C4: 0V

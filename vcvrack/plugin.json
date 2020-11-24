@@ -1,0 +1,25 @@
+{
+  "slug": "wjanssens-factotum",
+  "name": "Factotum",
+  "version": "1.0.0",
+  "license": "GPL-3.0-only",
+  "brand": "TODO",
+  "author": "Warren Janssens",
+  "authorEmail": "warren.janssens@gmail.com",
+  "authorUrl": "",
+  "pluginUrl": "",
+  "manualUrl": "",
+  "sourceUrl": "github.com/wjanssens/factotum",
+  "donateUrl": "",
+  "changelogUrl": "",
+  "modules": [
+    {
+      "slug": "Factotum",
+      "name": "Factotum",
+      "description": "Jack of all trades",
+      "tags": [
+        "Arpeggiator", "Clock", "Logic", "VCO", "Quantizer", "S&H", "Sequencer", "Utility"
+      ]
+    }
+  ]
+}
