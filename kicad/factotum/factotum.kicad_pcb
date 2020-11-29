@@ -1727,7 +1727,7 @@
   )
 
   (module LED_THT:LED_D3.0mm-3 (layer F.Cu) (tedit 587A3A7B) (tstamp 5FC495A5)
-    (at 125.73 40.64 180)
+    (at 125.73 41.275 180)
     (descr "LED, diameter 3.0mm, 2 pins, diameter 3.0mm, 3 pins, http://www.kingbright.com/attachments/file/psearch/000/00/00/L-3VSURKCGKC(Ver.8A).pdf")
     (tags "LED diameter 3.0mm 2 pins diameter 3.0mm 3 pins")
     (path /6088BCB1/60A6DFC2)
