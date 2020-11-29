@@ -277,7 +277,7 @@ AR Path="/607FA1FC" Ref="J?"  Part="1"
 AR Path="/606FF2F2/607FA1FC" Ref="J5"  Part="1" 
 F 0 "J5" H 1682 1975 50  0000 C CNN
 F 1 "VOCT" H 1682 1884 50  0000 C CNN
-F 2 "" H 1650 1650 50  0001 C CNN
+F 2 "Connector_Audio:Jack_3.5mm_QingPu_WQP-PJ398SM_Vertical_CircularHoles" H 1650 1650 50  0001 C CNN
 F 3 "~" H 1650 1650 50  0001 C CNN
 	1    1650 1650
 	1    0    0    -1  
@@ -381,8 +381,8 @@ L Device:R_POT FRQ?
 U 1 1 60807EF6
 P 3000 3400
 AR Path="/60807EF6" Ref="FRQ?"  Part="1" 
-AR Path="/606FF2F2/60807EF6" Ref="FRQ1"  Part="1" 
-F 0 "FRQ1" V 2885 3400 50  0000 C CNN
+AR Path="/606FF2F2/60807EF6" Ref="P1"  Part="1" 
+F 0 "P1" V 2885 3400 50  0000 C CNN
 F 1 "10k" V 2794 3400 50  0000 C CNN
 F 2 "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical_CircularHoles" H 3000 3400 50  0001 C CNN
 F 3 "~" H 3000 3400 50  0001 C CNN
@@ -433,8 +433,8 @@ L Device:R_POT FRQ?
 U 1 1 6082088B
 P 4150 3400
 AR Path="/6082088B" Ref="FRQ?"  Part="1" 
-AR Path="/606FF2F2/6082088B" Ref="SEL1"  Part="1" 
-F 0 "SEL1" V 4035 3400 50  0000 C CNN
+AR Path="/606FF2F2/6082088B" Ref="P2"  Part="1" 
+F 0 "P2" V 4035 3400 50  0000 C CNN
 F 1 "10k" V 3944 3400 50  0000 C CNN
 F 2 "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical_CircularHoles" H 4150 3400 50  0001 C CNN
 F 3 "~" H 4150 3400 50  0001 C CNN
@@ -494,8 +494,8 @@ L Device:R_POT FRQ?
 U 1 1 6082982D
 P 5300 3400
 AR Path="/6082982D" Ref="FRQ?"  Part="1" 
-AR Path="/606FF2F2/6082982D" Ref="SCL1"  Part="1" 
-F 0 "SCL1" V 5185 3400 50  0000 C CNN
+AR Path="/606FF2F2/6082982D" Ref="P3"  Part="1" 
+F 0 "P3" V 5185 3400 50  0000 C CNN
 F 1 "10k" V 5094 3400 50  0000 C CNN
 F 2 "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical_CircularHoles" H 5300 3400 50  0001 C CNN
 F 3 "~" H 5300 3400 50  0001 C CNN
@@ -555,8 +555,8 @@ L Device:R_POT FRQ?
 U 1 1 60829C62
 P 6450 3400
 AR Path="/60829C62" Ref="FRQ?"  Part="1" 
-AR Path="/606FF2F2/60829C62" Ref="OFF1"  Part="1" 
-F 0 "OFF1" V 6335 3400 50  0000 C CNN
+AR Path="/606FF2F2/60829C62" Ref="P4"  Part="1" 
+F 0 "P4" V 6335 3400 50  0000 C CNN
 F 1 "10k" V 6244 3400 50  0000 C CNN
 F 2 "Potentiometer_THT:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical_CircularHoles" H 6450 3400 50  0001 C CNN
 F 3 "~" H 6450 3400 50  0001 C CNN
