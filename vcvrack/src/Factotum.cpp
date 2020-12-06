@@ -1,6 +1,30 @@
 #include "plugin.hpp"
 
 
+static const float quantized = {
+	0.0000f, // C
+	0.0833f  // C#/Db
+	0.1667f, // D
+	0.2500f, // D#/Eb
+	0.3333f, // E
+	0.4167f, // F
+	0.5000f, // F#/Gb
+	0.5833f, // G
+	0.6667f, // G#/Ab
+	0.7500f, // A
+	0.8333f, // A#/Bb
+	0.9167f  // 
+};
+
+static const int ionian = { 2,2,1,2,2,2,1 };
+static const int dorian = { 2,1,2,2,2,1,2 };
+static const int phrygian = { 1,2,2,2,1,2,2 };
+static const int lydian = { 2,2,2,1,2,2,1 };
+static const int myxolydian = { 2,2,1,2,2,1,2 };
+static const int aeolian = { 2,1,2,2,1,2,2 };
+static const int locrian = { 1,2,2,1,2,2,2 };
+
+
 struct Factotum : Module {
 	float phase = 0.f;
 	float blinkPhase = 0.f;
@@ -16,7 +40,7 @@ struct Factotum : Module {
 	enum InputIds {
 		VOCT_INPUT,
 		CLK_INPUT,
-		SCL_INPUT,
+		RST_INPUT,
 		NUM_INPUTS
 	};
 	enum OutputIds {
@@ -42,19 +66,156 @@ struct Factotum : Module {
 		NUM_LIGHTS
 	};
 
-	Tutorial() {
-		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
-		configParam(PITCH_PARAM, 0.f, 1.f, 0.f, "");
+	// state
+	int mode;
+	int reg;
+	int trig;
+	unsigned int sr; // shift register
+	float out[8];
+	dsp::BooleanTrigger modeTrigger;
 
-		configParam(FRQ_PARAM, 0.0, 1.0, 0.0, "Frequency");
-		configParam(SEL_PARAM, 0.0, 1.0, 0.0, "Mode Select");
-		configParam(SCL_PARAM, 0.0, 1.0, 0.0, "Scale");
-		configParam(OFF_PARAM, 0.0, 1.0, 0.5, "Offset");
-		configParam(MODE_PARAM, 0.0, 1.0, 0.0, "Model");
+	enum ModeIds {
+		TURING,
+		LFO,
+		RANDOM,
+		ARP,
+		QUANTIZER
+		CLOCK,
+		SHIFT,
+		NUM_MODES
+	};
+
+	Factotum() {
+		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
+		configParam(FRQ_PARAM, 0.0, 12.0, 0.0, "Frequency");
+		configParam(SEL_PARAM, 0.0, 8.0, 0.0, "Select");
+		configParam(SCL_PARAM, 0.0, 10.0, 0.0, "Scale");
+		configParam(OFF_PARAM, -5.0, 5.0, 0.0, "Offset");
+		configParam(MODE_PARAM, 0.0, 1.0, 0.0, "Mode");
+	}
+
+	json_t *dataToJson() override {
+		json_t * root = json_object();
+		json_object_set_new(root, "mode", json_integer(mode));
+		return root;
+	}
+
+	void dataFromJson(json_t *root) {
+		json_t *modeValue = json_object_get(root, "mode");
+		if (modeValue) {
+			mode = json_integer_value(modeValue);
+		}
+	}
+
+	/* input is between -1.0 and +1.0
+	 * output is 10.0 pp between -10.0 and +10.0
+	 */
+	float scaleAndOffset(float value) {
+		clamp(value, -1.f, 1.f)
+		float scl = params[SCL_PARAM].getValue();
+		float off = params[OFF_PARAM].getValue();
+		return (value * scl) + off;
+	}
+
+	int selRange() {
+		// sel param is divided into 8 segments
+		float sel = params[SEL_PARAM].getValue();
+		int i = 0;
+		while (i < 8.0) {
+			if (i < sel) {
+				return i;
+			}
+		}
+		return i;
+	}
+
+	void mode() {
+		if (modeTrigger.process(params[MODE_PARAM].getValue() > 0.f)) {
+			mode = (mode + 1) % 8;
+		}
 	}
 
 	void process(const ProcessArgs& args) override {
+		mode();
 
+		float voct = params[VOCT_INPUT].getValue();
+		float clock = params[CLK_INPUT].getValue();
+		float reset = params[RST_INPUT].getValue();
+
+		if (mode == ModeIds.TURING) {
+			// Tuning Machine
+			if (clock > 0.f) {
+
+				float rnd = rescale(params[FRQ_PARAM].getValue(), 0.f, 12.f, 0.f, 1.f);
+				int sel = selRange();
+
+				if (trig == 0) {
+					trig = 1;
+
+					sr >> 1;
+					int bit = 0;
+					switch (selRange()) {
+						case 0: // 2
+							bit = 29;
+						case 1: // 3
+							bit = 28;
+						case 2: // 4
+							bit = 27;
+						case 3: // 5
+							bit = 26;
+						case 4: // 6
+							bit = 25;
+						case 5: // 8
+							bit = 23;
+						case 6: // 12
+							bit = 19;
+						default: // 16
+							bit = 15;
+					}
+					if (sr >> bit) {
+						sr |= 0x8000000;
+					}
+					if (uniform() > rnd) {
+						sr ^= 0x8000000;
+					}
+
+					out = rescale((float) sr >> 24, 0.f, 1.f, -1.f, 1.f);
+					outputs[A_OUTPUT].setVoltage(scaleAndOffset(out));
+
+					int a = (sr >> 31);
+					int b = (sr >> 30);
+					int c = (sr >> 29);
+					int d = (sr >> 28);
+					int e = (sr >> 27);
+					int f = (sr >> 26);
+					int g = (sr >> 25);
+					int h = (sr >> 24);
+
+					outputs[B_OUTPUT].setVoltage(a ? 10.f : 0.f);
+					outputs[C_OUTPUT].setVoltage(b ? 10.f : 0.f);
+					outputs[D_OUTPUT].setVoltage(d ? 10.f : 0.f);
+					outputs[E_OUTPUT].setVoltage(a & b ? 10.f : 0.f);
+					outputs[F_OUTPUT].setVoltage(a & d ? 10.f : 0.f);
+					outputs[G_OUTPUT].setVoltage(d & g ? 10.f : 0.f);
+					outputs[H_OUTPUT].setVoltage(a & b &d & g ? 10.f : 0.f);
+
+					lights[A_LIGHT].setBrightness(a ? 1.f : 0.f);
+					lights[B_LIGHT].setBrightness(b ? 1.f : 0.f);
+					lights[C_LIGHT].setBrightness(c ? 1.f : 0.f);
+					lights[D_LIGHT].setBrightness(d ? 1.f : 0.f);
+					lights[E_LIGHT].setBrightness(e ? 1.f : 0.f);
+					lights[F_LIGHT].setBrightness(f ? 1.f : 0.f);
+					lights[G_LIGHT].setBrightness(g ? 1.f : 0.f);
+					lights[H_LIGHT].setBrightness(h ? 1.f : 0.f);
+				}
+			} else {
+				 trig = 0;
+			}
+
+		} else if (mode == ModeIds.QUANTIZER) {
+			
+		}
+		
 		// Tutorial code
 		// // Compute the frequency from the pitch parameter and input
 		// float pitch = params[PITCH_PARAM].getValue();
@@ -85,8 +246,8 @@ struct Factotum : Module {
 };
 
 
-struct TutorialWidget : ModuleWidget {
-	TutorialWidget(Tutorial* module) {
+struct FactotumWidget : ModuleWidget {
+	FactotumWidget(Tutorial* module) {
 		setModule(module);
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Factotum.svg")));
 
@@ -103,7 +264,7 @@ struct TutorialWidget : ModuleWidget {
 
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10.2, 111.7)), module, Factotum::VOCT_INPUT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(25.4, 111.7)), module, Factotum::CLK_INPUT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(40.6, 111.7)), module, Factotum::SCL_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(40.6, 111.7)), module, Factotum::RST_INPUT));
 
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.2, 66.1)), module, Factotum::A_OUTPUT));
 		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(25.4, 66.1)), module, Factotum::B_OUTPUT));

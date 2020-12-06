@@ -287,7 +287,7 @@ U 1 1 60621286
 P 1650 2300
 F 0 "J3" H 1700 1875 50  0000 C CNN
 F 1 "Conn_02x05_Odd_Even" H 1700 1966 50  0000 C CNN
-F 2 "Connector_PinSocket_1.27mm:PinSocket_2x05_P1.27mm_Vertical" H 1650 2300 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical" H 1650 2300 50  0001 C CNN
 F 3 "~" H 1650 2300 50  0001 C CNN
 	1    1650 2300
 	-1   0    0    1   

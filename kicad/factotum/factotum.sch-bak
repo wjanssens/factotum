@@ -320,7 +320,7 @@ U 1 1 60C8646A
 P 8300 4500
 F 0 "J2" H 8300 4300 50  0000 C CNN
 F 1 "USART" V 8400 4450 50  0000 C CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_1x02_P1.27mm_Vertical" H 8300 4500 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8300 4500 50  0001 C CNN
 F 3 "~" H 8300 4500 50  0001 C CNN
 	1    8300 4500
 	-1   0    0    1   
@@ -620,7 +620,7 @@ U 1 1 607C9AE3
 P 8300 3700
 F 0 "J1" H 8218 3175 50  0000 C CNN
 F 1 "Conn_01x06" H 8218 3266 50  0000 C CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_1x06_P1.27mm_Vertical" H 8300 3700 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 8300 3700 50  0001 C CNN
 F 3 "~" H 8300 3700 50  0001 C CNN
 	1    8300 3700
 	-1   0    0    1   
@@ -682,4 +682,69 @@ Wire Wire Line
 	4800 3650 4900 3650
 Text GLabel 6300 3650 2    50   Input ~ 0
 B_MODE
+$Comp
+L Memory_EEPROM:M24C02-RMN U8
+U 1 1 5FCBE0D3
+P 8650 5600
+F 0 "U8" H 8650 6081 50  0000 C CNN
+F 1 "M24C02-RMN" H 8650 5990 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 8650 5950 50  0001 C CNN
+F 3 "http://www.st.com/content/ccc/resource/technical/document/datasheet/b0/d8/50/40/5a/85/49/6f/DM00071904.pdf/files/DM00071904.pdf/jcr:content/translations/en.DM00071904.pdf" H 8700 5100 50  0001 C CNN
+	1    8650 5600
+	1    0    0    -1  
+$EndComp
+Text GLabel 9050 5600 2    50   Input ~ 0
+I2C1_SCL
+Text GLabel 9050 5500 2    50   Input ~ 0
+I2C1_SDA
+$Comp
+L power:GND #PWR096
+U 1 1 5FCC2B30
+P 9050 5900
+F 0 "#PWR096" H 9050 5650 50  0001 C CNN
+F 1 "GND" H 9055 5727 50  0000 C CNN
+F 2 "" H 9050 5900 50  0001 C CNN
+F 3 "" H 9050 5900 50  0001 C CNN
+	1    9050 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR095
+U 1 1 5FCC3186
+P 9050 5300
+F 0 "#PWR095" H 9050 5150 50  0001 C CNN
+F 1 "+3.3V" H 9065 5473 50  0000 C CNN
+F 2 "" H 9050 5300 50  0001 C CNN
+F 3 "" H 9050 5300 50  0001 C CNN
+	1    9050 5300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8650 5300 9050 5300
+Wire Wire Line
+	8650 5900 9050 5900
+Text Notes 8150 5800 1    50   ~ 0
+addr 1010000x
+$Comp
+L power:GND #PWR094
+U 1 1 5FCD7888
+P 8250 5900
+F 0 "#PWR094" H 8250 5650 50  0001 C CNN
+F 1 "GND" H 8255 5727 50  0000 C CNN
+F 2 "" H 8250 5900 50  0001 C CNN
+F 3 "" H 8250 5900 50  0001 C CNN
+	1    8250 5900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8250 5500 8250 5600
+Connection ~ 8250 5600
+Wire Wire Line
+	8250 5600 8250 5700
+Connection ~ 8250 5700
+Wire Wire Line
+	8250 5700 8250 5900
+Wire Wire Line
+	9050 5700 9050 5900
+Connection ~ 9050 5900
 $EndSCHEMATC
