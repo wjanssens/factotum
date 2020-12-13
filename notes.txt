@@ -13,8 +13,9 @@ Sequencers:
     - note: v/oct is the 8 bit value of the shift register, with scale and offset applied
     - note: gates are active based on the 8 bits of shift register
     - note: randomness is how likely a bit will flip when shifted
+    - note: shift register state is saved to EEPROM when set to 100% or 0%
     
-?. Two Euclidean Sequencers
+?. Two Euclidean Gate Sequencers
     - inspiration: polymetric
     - Frq: Sequencer 1 length (1 to 24 steps)
     - Sel: Sequencer 2 length (1 to 16 steps)
@@ -30,7 +31,7 @@ Sequencers:
     - note: out 2 and 6 have fixed gates at steps 1, 3, 5, 8, 13 up to sequence length
     - note: Fill and Rotation are 0% at center; 0 to 100% right of center; 0/0, 25/50, 50/100, 75/50, 100/0 right of center
     
-Two Polyrythmic Sequencers?
+?. Two Polyrythmic Sequencers?
 
 9. 4-step sequencer
     - inspiration: NLC 4-step sequencer
@@ -116,8 +117,7 @@ Clocks
     - out: shift register / counter state (1-4, 5-8 for 4-bit, 1-8 for 8-bit) (0/10V)
     - clk: s&h / shift / increment
     - v/o: input for 1 8-bit shift register
-    - scl: input for 2 4-bit shift registers (4-bit mode active when patched)
-    - rst: reset
+    - rst: input for 2 4-bit shift registers (4-bit mode active when patched), reset for counters)
     - note: see https://en.wikipedia.org/wiki/Gray_code for info on 5 gray codes
     - note: counter register is never random, randomness is applied when copying counter register to output register
 
@@ -134,6 +134,17 @@ Audio Rate
     - v/o: v/oct
     - clk: sync (reset the oscillator phase) / maybe FM is better?
     - rst: pw (additive with Scl)
+    
+    
+X. Tuning
+    - Frq: Input / output to tune (1,2,3,4,5,6,7,8,clk,v/o,rst,-)
+    - Sel: output voltage -10, -5, 0, +5, +10 ??
+    - Scl: Course Tune
+    - Off: Fine Tune
+    - out
+    - clk, v/o, scl:
+    - note: tune outputs first since it will affect input tuning
+    - note: tuning is stored to EEPROM when exiting tuning mode
 
 C1: -3V
 C4: 0V
