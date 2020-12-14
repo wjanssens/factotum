@@ -759,7 +759,7 @@ F 3 "" H 3150 5900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 3250 5400 2    50   Input ~ 0
-T_MODE
+T_MODE_SW
 Wire Wire Line
 	3000 3550 3000 3600
 Wire Wire Line
@@ -1367,4 +1367,5 @@ Text GLabel 1850 4200 2    50   Input ~ 0
 B_CLK_SW
 Text GLabel 1850 4400 2    50   Input ~ 0
 B_RST_SW
+NoConn ~ 6050 4200
 $EndSCHEMATC
