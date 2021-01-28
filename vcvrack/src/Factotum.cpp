@@ -1,5 +1,7 @@
 #include "plugin.hpp"
 
+#define _BV(bit)	(1 << (bit))
+#define _is_set(v, bit)	(((v) >> (bit)) & 1)
 
 static const float quantized = {
 	0.0000f, // C
@@ -13,21 +15,25 @@ static const float quantized = {
 	0.6667f, // G#/Ab
 	0.7500f, // A
 	0.8333f, // A#/Bb
-	0.9167f  // 
+	0.9167f  // B 
 };
 
-static const int ionian = { 2,2,1,2,2,2,1 };
-static const int dorian = { 2,1,2,2,2,1,2 };
-static const int phrygian = { 1,2,2,2,1,2,2 };
-static const int lydian = { 2,2,2,1,2,2,1 };
-static const int myxolydian = { 2,2,1,2,2,1,2 };
-static const int aeolian = { 2,1,2,2,1,2,2 };
-static const int locrian = { 1,2,2,1,2,2,2 };
-
+static const int[7][7] modes = {
+	{ 1,1,1,1,1,1,1 }, // chromatic
+	{ 2,2,1,2,2,2,1 }, // ionian
+	{ 2,1,2,2,2,1,2 }, // dorian
+	{ 1,2,2,2,1,2,2 }, // phrygian
+	{ 2,2,2,1,2,2,1 }, // lydian
+	{ 2,2,1,2,2,1,2 }, // mixolydian
+	{ 2,1,2,2,1,2,2 }, // aeolian
+	{ 1,2,2,1,2,2,2 }  // locrian
+};
 
 struct Factotum : Module {
 	float phase = 0.f;
 	float blinkPhase = 0.f;
+	int sr = 0;
+	int i = 0;
 
 	enum ParamIds {
 		FRQ_PARAM,
@@ -116,13 +122,23 @@ struct Factotum : Module {
 		float off = params[OFF_PARAM].getValue();
 		return (value * scl) + off;
 	}
-
 	int selRange() {
-		// sel param is divided into 8 segments
+		// sel param divided into 8 segments
 		float sel = params[SEL_PARAM].getValue();
 		int i = 0;
 		while (i < 8.0) {
 			if (i < sel) {
+				return i;
+			}
+		}
+		return i;
+	}
+	int frqRange() {
+		// frq param divided into 12 segments
+		float frq = params[FRQ_PARAM].getValue();
+		int i = 0;
+		while (i < 12.0) {
+			if (i < frq) {
 				return i;
 			}
 		}
@@ -138,9 +154,9 @@ struct Factotum : Module {
 	void process(const ProcessArgs& args) override {
 		mode();
 
-		float voct = params[VOCT_INPUT].getValue();
-		float clock = params[CLK_INPUT].getValue();
-		float reset = params[RST_INPUT].getValue();
+		float voct = inputs[VOCT_INPUT].getVoltage();
+		float clock = inputs[CLK_INPUT].getVoltage();
+		float reset = inputs[RST_INPUT].getVoltage();
 
 		if (mode == ModeIds.TURING) {
 			// Tuning Machine
@@ -213,7 +229,103 @@ struct Factotum : Module {
 			}
 
 		} else if (mode == ModeIds.QUANTIZER) {
-			
+			float clk = inputs[CLK_INPUT].getVoltage();
+
+			if (trig == 0 && clk > 1.f) {
+				trig = 1;
+
+				int[] mode = modes[selRange()];
+				float frq = params[FRQ_PARAM];
+				float scl = params[SCL_PARAM];
+				float off = params[OFF_PARAM];
+
+				float a = inputs[VOCT_INPUT].getVoltage();
+				float c = scaleAndOffset(a);
+				float e = inputs[RST_INPUT].getVoltage();
+				float g = scaleAndOffset(e);
+
+				float y = getNearestElement(quantized, 12, frq);
+				y -= 10.f;
+				// 240 steps for chromatic, otherwise 140 steps
+				while (y >= -10.f && y < +10.f) {
+					float x = y;
+					for (int i = 0; i < 7; i++) {
+						y += ((float) mode[i]) / 12.f;
+						if (x < a && a < y) {
+							outputs[A_OUTPUT] = getNearest(x, y, a);
+						}
+						if (x < c && c < y) {
+							outputs[C_OUTPUT] = getNearest(x, y, c);
+						}
+						if (x < e && e < y) {
+							outputs[E_OUTPUT] = getNearest(x, y, e);
+						}
+						if (x < g && g < y) {
+							outputs[G_OUTPUT] = getNearest(x, y, g);
+						}
+					}
+				}
+			} else if (trig == 1 && clk < 1.f) {
+				trig = 0;
+			}
+		} else if (mode === ModeIds.SHIFT) {
+			float frq = 0.f;
+			if (inputs[CLK_INPUT].isConnected()) {
+
+			} else {
+				frq = math::rescale(inputs[FRQ_PARAM], 
+				-1.f, 1.f, 20.0, 240);
+			}
+
+			int rand = params[SCL_PARAM];
+			int type = selRange();
+			if (type == 0) {
+				// shift register
+				if (inputs[VOCT_INPUT].isConnected()
+					&& inputs[RST_INPUT].isConnected()) {
+						// two 4-bit shift registers
+				} else {
+					
+				}
+				sr >> 1;
+			} else if (type > 0 && type < 6) {
+				if (i > 255) {
+					i = 0;
+				}
+				if (type == 1) {
+					// reflected gray code
+					sr = reflected_gray[i++];
+				} else if (type == 2) {
+					// balanced gray code
+					sr = balanced_gray[i++];
+				} else if (type == 3) {
+					// left fibonacci LFSR
+					uint16_t lsb = sr & 1;
+					sr >>= 1;
+					if (lsb) {
+						sr ^= 0xB400;
+					}
+				} else if (type == 4) {
+					// right fibonacci LFSR
+					uint16_t msb = (uint16_t) sr < 0;
+					lfsr <<= 1;
+					if (msb) {
+						sr ^= 0x002D; 
+					}
+				} else {
+					// 
+				}
+			} else if (type > 5) {
+				// counters
+			}
+			outputs[OUTPUT_A].setVoltage(_is_set(sr, 7) ? 10.f : 0.f);
+			outputs[OUTPUT_B].setVoltage(_is_set(sr, 6) ? 10.f : 0.f);
+			outputs[OUTPUT_C].setVoltage(_is_set(sr, 5) ? 10.f : 0.f);
+			outputs[OUTPUT_D].setVoltage(_is_set(sr, 4) ? 10.f : 0.f);
+			outputs[OUTPUT_E].setVoltage(_is_set(sr, 3) ? 10.f : 0.f);
+			outputs[OUTPUT_F].setVoltage(_is_set(sr, 2) ? 10.f : 0.f);
+			outputs[OUTPUT_G].setVoltage(_is_set(sr, 1) ? 10.f : 0.f);
+			outputs[OUTPUT_H].setVoltage(_is_set(sr, 0) ? 10.f : 0.f);
 		}
 		
 		// Tutorial code
@@ -242,6 +354,40 @@ struct Factotum : Module {
 		// 	blinkPhase -= 1.f;
 		// }
 		// lights[BLINK_LIGHT].setBrightness(blinkPhase < 0.5f ? 1.f : 0.f);
+	}
+
+
+
+	float getNearest(float x, float y, float target) {
+    	return (target - x >= y - target) ? y : x;
+	}
+
+	float getNearestElement(float arr[], int n, float target) {
+		if (target <= arr[0]) {
+			return arr[0];
+		}
+		if (target >= arr[n - 1]) {
+			return arr[n - 1];
+		}
+		float left = 0, right = n, mid = 0;
+		while (left < right) {
+			mid = (left + right) / 2;
+			if (arr[mid] == target) {
+				return arr[mid];
+			}
+			if (target < arr[mid]) {
+				if (mid > 0 && target > arr[mid - 1]) {
+					return getNearest(arr[mid - 1], arr[mid], target);
+				}
+				right = mid;
+			} else {
+				if (mid < n - 1 && target < arr[mid + 1]) {
+					return getNearest(arr[mid], arr[mid + 1], target);
+				}
+				left = mid + 1;
+			}
+		}
+		return arr[mid];
 	}
 };
 

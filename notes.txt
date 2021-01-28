@@ -40,7 +40,7 @@ Sequencers:
     - Scl: x3/y0
     - Off: x2/y1
     - led: x0, x1, x2, x3 voltages (only one on at a time depending on step), /2, /4, /8, /16 
-    - out: out, outx, ??, ??, /2, /4, /8, /16
+    - out: out, outx, eoc?, ??, /2, /4, /8, /16
     - v/o: up/down
     - clk: advance
     - rst: reset
@@ -89,27 +89,28 @@ Quantizers
     - inspiration: mother+fence
     - Frq: scale (C, C#/Db, D, D#/Eb, E, F, F#/Gb, G, G#/Ab, A, A#/Bb, B) 
     - Sel: mode (chromatic, ionian, dorian, phrygian, lydian, myxolydian, aeolian, locrian)
-    - Scl: scale (0V - +5V)
-    - Off: offset (-2V - +2V)
-    - out: v/oct 1 (-5V ~ +5V), gate 1 (0/10V), v/oct 2, gate 2, v/oct 3, gate 3), ?, ?
+    - Scl: scale (0V ~ +10V)
+    - Off: offset (-5V ~ +5V)
+    - out: v/oct 1 (unfenced), trig, v/oct 1 (fenced), trig
+    -      v/oct 2 (unfenced), trig, v/oct 2 (fenced), trig
     - v/o: v/oct 1
-    - clk: v/oct 2
-    - rst: v/oct 3
+    - clk: s&h
+    - rst: v/oct 2
 
 Clocks
     
 6. Clock / Multiplier / Divider
-    - Frq: frequency (20 - 240 BPM)
+    - Frq: frequency (20 - 240 BPM) when clk not connected
     - Sel: divisions (2/3/4, 2/4/8, 3/6/9, 4/8/12, 5/8/13, 5/7/11, 5/11/17, ?)
     - Scl: randomness (first x1 never randomized, other 7 outputs are)
     - Off:
     - out: x1, xA, xB, xC, x1, /C, /B, /A (0/10V)
     - v/o:
-    - clk: frequency (additive with Frq)
+    - clk: x1 frequency
     - rst: randomness (additive with Scl)
     
 7. Shift Register / Gray Code / Counter
-    - Frq: 
+    - Frq: frequency (20 - 240 BPM) when clk not connected
     - Sel: shift, [ reflected, balanced, monotonic, snake, singletrack ], [ unary, binary ], ??
     - Scl: randomness
     - Off: 
