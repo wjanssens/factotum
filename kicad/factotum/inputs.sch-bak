@@ -424,8 +424,6 @@ F 3 "" H 3000 3150 50  0001 C CNN
 	1    3000 3150
 	1    0    0    -1  
 $EndComp
-Text GLabel 1850 3100 2    50   Input ~ 0
-B_FRQ
 $Comp
 L Device:R_POT FRQ?
 U 1 1 6082088B
@@ -485,8 +483,6 @@ Wire Wire Line
 Connection ~ 4150 3600
 Wire Wire Line
 	4150 3600 4150 3700
-Text GLabel 1850 3400 2    50   Input ~ 0
-B_SEL
 $Comp
 L Device:R_POT FRQ?
 U 1 1 6082982D
@@ -546,8 +542,6 @@ Wire Wire Line
 Connection ~ 5300 3600
 Wire Wire Line
 	5300 3600 5300 3700
-Text GLabel 1850 3300 2    50   Input ~ 0
-B_SCL
 $Comp
 L Device:R_POT FRQ?
 U 1 1 60829C62
@@ -607,8 +601,6 @@ Wire Wire Line
 Connection ~ 6450 3600
 Wire Wire Line
 	6450 3600 6450 3700
-Text GLabel 1850 3200 2    50   Input ~ 0
-B_OFF
 Text GLabel 5000 4800 0    50   Input ~ 0
 B_FRQ
 Text GLabel 5000 4900 0    50   Input ~ 0
@@ -769,8 +761,6 @@ Wire Wire Line
 	3000 3600 3000 3650
 Text GLabel 3350 3400 2    50   Input ~ 0
 T_FRQ
-Text GLabel 1100 3100 0    50   Input ~ 0
-T_FRQ
 Wire Wire Line
 	3150 3400 3250 3400
 Connection ~ 3250 3400
@@ -784,8 +774,6 @@ Wire Wire Line
 Wire Wire Line
 	4400 3600 4150 3600
 Text GLabel 4500 3400 2    50   Input ~ 0
-T_SEL
-Text GLabel 1100 3400 0    50   Input ~ 0
 T_SEL
 Connection ~ 5550 3400
 Wire Wire Line
@@ -801,17 +789,9 @@ Text GLabel 6800 3400 2    50   Input ~ 0
 T_SCL
 Text GLabel 5650 3400 2    50   Input ~ 0
 T_OFF
-Text GLabel 1100 3200 0    50   Input ~ 0
-T_OFF
-Text GLabel 1100 3300 0    50   Input ~ 0
-T_SCL
 Text GLabel 1950 1550 3    50   Input ~ 0
 T_VOCT
-Text GLabel 1100 3900 0    50   Input ~ 0
-T_VOCT
 Text GLabel 2100 1550 3    50   Input ~ 0
-B_VOCT
-Text GLabel 1850 3900 2    50   Input ~ 0
 B_VOCT
 Text GLabel 4850 1550 3    50   Input ~ 0
 T_RST
@@ -824,70 +804,6 @@ Text GLabel 7900 1550 3    50   Input ~ 0
 T_CLK
 Text GLabel 8050 1550 3    50   Input ~ 0
 B_CLK
-Text GLabel 1100 4300 0    50   Input ~ 0
-T_RST
-Text GLabel 1850 4100 2    50   Input ~ 0
-B_CLK
-Text GLabel 1100 4100 0    50   Input ~ 0
-T_CLK
-Text GLabel 1850 4300 2    50   Input ~ 0
-B_RST
-Text GLabel 1850 4500 2    50   Input ~ 0
-B_MODE_SW
-Text GLabel 1100 4500 0    50   Input ~ 0
-T_MODE_SW
-$Comp
-L power:+3.3VA #PWR030
-U 1 1 5FE170F7
-P 850 3000
-F 0 "#PWR030" H 850 2850 50  0001 C CNN
-F 1 "+3.3VA" H 865 3173 50  0000 C CNN
-F 2 "" H 850 3000 50  0001 C CNN
-F 3 "" H 850 3000 50  0001 C CNN
-	1    850  3000
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:+3.3VA #PWR034
-U 1 1 5FE18226
-P 2150 3000
-F 0 "#PWR034" H 2150 2850 50  0001 C CNN
-F 1 "+3.3VA" H 2165 3173 50  0000 C CNN
-F 2 "" H 2150 3000 50  0001 C CNN
-F 3 "" H 2150 3000 50  0001 C CNN
-	1    2150 3000
-	0    1    1    0   
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5FE18FBB
-P 800 4600
-AR Path="/5FE18FBB" Ref="#PWR?"  Part="1" 
-AR Path="/606FF2F2/5FE18FBB" Ref="#PWR029"  Part="1" 
-F 0 "#PWR029" H 800 4350 50  0001 C CNN
-F 1 "GND" V 900 4650 50  0000 R CNN
-F 2 "" H 800 4600 50  0001 C CNN
-F 3 "" H 800 4600 50  0001 C CNN
-	1    800  4600
-	0    1    1    0   
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5FE1CBFF
-P 2150 4600
-AR Path="/5FE1CBFF" Ref="#PWR?"  Part="1" 
-AR Path="/606FF2F2/5FE1CBFF" Ref="#PWR035"  Part="1" 
-F 0 "#PWR035" H 2150 4350 50  0001 C CNN
-F 1 "GND" V 2050 4650 50  0000 R CNN
-F 2 "" H 2150 4600 50  0001 C CNN
-F 3 "" H 2150 4600 50  0001 C CNN
-	1    2150 4600
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	850  3000 1100 3000
-Wire Wire Line
-	1850 3000 2150 3000
 Wire Wire Line
 	4750 1550 4850 1550
 Wire Wire Line
@@ -1013,32 +929,6 @@ Wire Wire Line
 	6950 5200 6950 5300
 Wire Wire Line
 	6950 4900 6950 5000
-$Comp
-L Connector:Conn_01x05_Female J4
-U 1 1 5FD0067F
-P 1300 3200
-F 0 "J4" H 1150 3500 50  0000 L CNN
-F 1 "Conn_01x05_Female" V 1350 3000 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Vertical" H 1300 3200 50  0001 C CNN
-F 3 "~" H 1300 3200 50  0001 C CNN
-	1    1300 3200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x05_Male J21
-U 1 1 5FD01CE2
-P 1650 3200
-F 0 "J21" H 1700 3500 50  0000 C CNN
-F 1 "Conn_01x05_Male" V 1550 3300 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 1650 3200 50  0001 C CNN
-F 3 "~" H 1650 3200 50  0001 C CNN
-	1    1650 3200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2150 4600 1850 4600
-Wire Wire Line
-	1100 4600 800  4600
 Wire Wire Line
 	1850 1450 1950 1450
 Wire Wire Line
@@ -1333,39 +1223,5 @@ Text GLabel 7100 1650 3    50   Input ~ 0
 B_CLK_SW
 Text GLabel 7800 1650 3    50   Input ~ 0
 T_CLK_SW
-$Comp
-L Connector:Conn_01x08_Female J6
-U 1 1 600A03D9
-P 1300 4200
-F 0 "J6" H 1200 4600 50  0000 L CNN
-F 1 "Conn_01x08_Female" V 1600 3800 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical" H 1300 4200 50  0001 C CNN
-F 3 "~" H 1300 4200 50  0001 C CNN
-	1    1300 4200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x08_Male J22
-U 1 1 600A30A6
-P 1650 4200
-F 0 "J22" H 1750 4600 50  0000 C CNN
-F 1 "Conn_01x08_Male" V 1350 4200 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 1650 4200 50  0001 C CNN
-F 3 "~" H 1650 4200 50  0001 C CNN
-	1    1650 4200
-	1    0    0    -1  
-$EndComp
-Text GLabel 1100 4000 0    50   Input ~ 0
-T_VOCT_SW
-Text GLabel 1100 4200 0    50   Input ~ 0
-T_CLK_SW
-Text GLabel 1100 4400 0    50   Input ~ 0
-T_RST_SW
-Text GLabel 1850 4000 2    50   Input ~ 0
-B_VOCT_SW
-Text GLabel 1850 4200 2    50   Input ~ 0
-B_CLK_SW
-Text GLabel 1850 4400 2    50   Input ~ 0
-B_RST_SW
 NoConn ~ 6050 4200
 $EndSCHEMATC

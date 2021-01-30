@@ -1,65 +1,141 @@
+Outputs and LEDS are arranged:
+
+    1 2 3
+    8   4
+    7 6 5
+    v c r
+
 Sequencers:
 
-1. Turing Machine
+R1. Turing Machine
     - Frq: randomness (100%, 90%, 80%, 70%, 60%, 50%, 40%, 30%, 20%, 10%, 0%, ?)
     - Sel: length (2, 3, 4, 5, 6, 8, 12, 16)
     - Scl: scale (0V ~ +6V)
     - Off: offset (-2V ~ +2V)
     - led: shift register state
-    - out: v/oct (6V pp -5V ~ +5V), 1, 2, 4, 1+2, 2+4, 4+7, 1+2+4+7 (0/10V)
+    - out: 1, 2, 1+2, 4, 2+4, v/oct (6V pp -5V ~ +5V), 4+7, 1+2+4+7 (0/10V)
     - v/o: randomness
     - clk: advance
     - rst: reset
+    - btn: reset
     - note: v/oct is the 8 bit value of the shift register, with scale and offset applied
     - note: gates are active based on the 8 bits of shift register
     - note: randomness is how likely a bit will flip when shifted
     - note: shift register state is saved to EEPROM when set to 100% or 0%
     
-?. Two Euclidean Gate Sequencers
+R2. Mini Marbles ???
+    - Frq: rate
+    - Sel: deja vu length (1, 2, 3, 4, 6, 8, 12, 16)
+    - Scl: spread
+    - Off: 
+    - led: t1, t2, t3, y, x3, x2, x1, ??
+    - out: t1, t2, t3, y, x3, x2, x1, ??
+    - v/o: 
+    - clk: 
+    - rst:
+    - btn: dejavu (x & t)
+    
+R3. Two Euclidean Gate Sequencers
     - inspiration: polymetric
     - Frq: Sequencer 1 length (1 to 24 steps)
     - Sel: Sequencer 2 length (1 to 16 steps)
     - Scl: Fill % for both sequencers
     - Off: Rotation % for both sequencers
     - led: pattern for sequencer 2
-    - out: gate 1, fib 1, ??, eoc 1, gate 2, fib 2, ??, eoc 2
+    - out: gate 1, fib 1, eoc 1, ??, eoc 2, fib 2, gate 2, ??
     - v/o: rotation?
     - clk: advance
     - rst: reset
+    - btn: reset
     - note: led gate pattern at half brightness, active gate at full brightness
     - note: led gate pattern for 9~16 steps have odd steps green, even steps red, both steps yellow
     - note: out 2 and 6 have fixed gates at steps 1, 3, 5, 8, 13 up to sequence length
     - note: Fill and Rotation are 0% at center; 0 to 100% right of center; 0/0, 25/50, 50/100, 75/50, 100/0 right of center
     
-?. Two Polyrythmic Sequencers?
-
-9. 4-step sequencer
+R4. 4-step sequencer
     - inspiration: NLC 4-step sequencer
     - Frq: x0/y3
     - Sel: x1/y2
     - Scl: x3/y0
     - Off: x2/y1
     - led: x0, x1, x2, x3 voltages (only one on at a time depending on step), /2, /4, /8, /16 
-    - out: out, outx, eoc?, ??, /2, /4, /8, /16
+    - out: out, outx, eoc?, ??, /2, /4, /8, /16  (arrangement?)
     - v/o: up/down
     - clk: advance
     - rst: reset
+    - btn: reset
+
+Quantizers
     
+R5. Ref / Quantizer / Chords / Arpeggiator
+    - Frq: root note (c3 - c7; -3V - +3V)
+    - Sel: seventh (major, minor, dominant, diminished, half-dim, minor-major, augmented)
+    - Scl: arpegiator scale (1 - 3 octaves)
+    - Off: arpegiator steps/notes 2, 3, 4, 5, 6 (1/3/5/7/9/11)
+    - led: 
+    - out: root, third, fifth, seventh, arp up, arp down, arp random, ? (-5V ~ +5V) (arangement?)
+    - v/o: v/oct (additive with Frq)
+    - clk: s&h / arpeggiate
+    - rst: scale
+    - btn: ?
+    
+R6. Quantizer
+    - inspiration: mother+fence
+    - Frq: scale (C, C#/Db, D, D#/Eb, E, F, F#/Gb, G, G#/Ab, A, A#/Bb, B) 
+    - Sel: mode (chromatic, ionian, dorian, phrygian, lydian, myxolydian, aeolian, locrian)
+    - Scl: scale (0V ~ +10V)
+    - Off: offset (-5V ~ +5V)
+    - out: v1, ?, v2, ?, v2f, ?, v1f, ?
+    - v/o: v1
+    - clk: s&h
+    - rst: v2
+    - btn: ?
+
+Clocks
+    
+R7. Clock / Multiplier / Divider
+    - Frq: frequency (20 - 240 BPM) when clk not connected
+    - Sel: divisions (2/3/4, 2/4/8, 3/6/9, 4/8/12, 5/8/13, 5/7/11, 5/11/17, ?)
+    - Scl: randomness (first x1 never randomized, other 7 outputs are)
+    - Off:
+    - out: xA, xB, xC, x1r, /A, /B, /C, x1 (0/10V)
+    - v/o:
+    - clk: x1 frequency
+    - rst: randomness (additive with Scl)
+    - btn: ?
+    
+R8. Shift Register / Gray Code / Counter
+    - Frq: frequency (20 - 240 BPM) when clk not connected
+    - Sel: [ SR, SFSR ], [ reflected, balanced ], [ unary, binary ], ?, ?
+    - Scl: randomness
+    - Off: 
+    - led: shift register / counter state
+    - out: shift register / counter state (1-4, 5-8 for 4-bit, 1-8 for 8-bit) (0/10V)
+    - clk: s&h / shift / increment
+    - v/o: input for 1 8-bit shift register
+    - rst: input for 2 4-bit shift registers (4-bit mode active when patched), reset for counters
+    - btn: reset
+    - note: see https://en.wikipedia.org/wiki/Gray_code for info on 5 gray codes
+    - note: counter register is never random, randomness is applied when copying counter register to output register
+
+?. Two Polyrythmic Sequencers?
+
 Function Generators
 
-2. Phased LFO
+G1. Phased LFO
     - inpiration: Erica Black Octosource, Bog Audio 8FO
     - Frq: frequency: 1 min - ?
     - Sel: wave: ramp up, ramp down, sine, triangle, square, ?, ?, ?
     - Scl: scale (0V ~ +10V)
     - Off: offset (-5V ~ +5V) or sam/pw
     - led: output voltage (+10 red, -10 green)
-    - out: 0,45,90,135,180,225,270,315 (10V pp -10V ~ +10V)
+    - out: 315,0,45,90,135,180,225,270 (10V pp -10V ~ +10V)
     - v/o: phase
     - clk: sync (reset the generator phase)
     - rst: scale
+    - btn: reset
     
-3. Smooth Random
+G2. Smooth Random
     - inspiration: Vult Caudal, Geodesics Branes, Shepard Generator, Walk
     - Frq: rate
     - Sel: algorithm: smooth, stepped, reflected noise, more noise, ?, ?, ?, ?
@@ -67,64 +143,30 @@ Function Generators
     - Off: offset (-5V - +5V)
     - led: output voltage (+10V red, -10V green)
     - out: 8 different random values (10V pp -10V ~ +10V)
-    - v/o: offset
-    - clk: sync (reset the generator phase)
-    - rst: scale
-    - note: reflected noise is white, blue, red, pink; normal and inverted 
+    - v/o: ?
+    - clk: s&h trig
+    - rst: ?
+    - btn: ?
+    - note: reflected noise is white, blue, red, pink; normal (1-4) and inverted (5-8)
+    - note: all outputs are smooth when clk is unpatched
+    - node: outputs 5-8 are stepped when clk is patched, outputs 1-4 remain smooth
 
-Quantizers
+G3. 2 LFO / S&H
+    - inspiration: Barton 2LFOSH
+    - Frq: lfo 1 rate
+    - Sel: lfo 2 rate
+    - Scl: scale (0V - +10V)
+    - Off: (-5V - +5V)
+    - led:
+    - out: sq1, ?? sq2, v2s&h, tr2, tr1+tr2, tr1, v1s&h
+    - v/o: v1
+    - clk: s&h trig
+    - rst: v2
+    - btn: ?
     
-4. Ref / Quantizer / Chords / Arpeggiator
-    - Frq: root note (c3 - c7; -3V - +3V)
-    - Sel: seventh (major, minor, dominant, diminished, half-dim, minor-major, augmented)
-    - Scl: arpegiator scale (1 - 3 octaves)
-    - Off: arpegiator steps/notes 2, 3, 4, 5, 6 (1/3/5/7/9/11)
-    - led: 
-    - out: root, third, fifth, seventh, arp up, arp down, arp random, ? (-5V ~ +5V)
-    - v/o: v/oct (additive with Frq)
-    - clk: s&h / arpeggiate
-    - rst: scale
-    
-5. Quantizer
-    - inspiration: mother+fence
-    - Frq: scale (C, C#/Db, D, D#/Eb, E, F, F#/Gb, G, G#/Ab, A, A#/Bb, B) 
-    - Sel: mode (chromatic, ionian, dorian, phrygian, lydian, myxolydian, aeolian, locrian)
-    - Scl: scale (0V ~ +10V)
-    - Off: offset (-5V ~ +5V)
-    - out: v/oct 1 (unfenced), trig, v/oct 1 (fenced), trig
-    -      v/oct 2 (unfenced), trig, v/oct 2 (fenced), trig
-    - v/o: v/oct 1
-    - clk: s&h
-    - rst: v/oct 2
-
-Clocks
-    
-6. Clock / Multiplier / Divider
-    - Frq: frequency (20 - 240 BPM) when clk not connected
-    - Sel: divisions (2/3/4, 2/4/8, 3/6/9, 4/8/12, 5/8/13, 5/7/11, 5/11/17, ?)
-    - Scl: randomness (first x1 never randomized, other 7 outputs are)
-    - Off:
-    - out: x1, xA, xB, xC, x1, /C, /B, /A (0/10V)
-    - v/o:
-    - clk: x1 frequency
-    - rst: randomness (additive with Scl)
-    
-7. Shift Register / Gray Code / Counter
-    - Frq: frequency (20 - 240 BPM) when clk not connected
-    - Sel: shift, [ reflected, balanced, monotonic, snake, singletrack ], [ unary, binary ], ??
-    - Scl: randomness
-    - Off: 
-    - led: shift register / counter state
-    - out: shift register / counter state (1-4, 5-8 for 4-bit, 1-8 for 8-bit) (0/10V)
-    - clk: s&h / shift / increment
-    - v/o: input for 1 8-bit shift register
-    - rst: input for 2 4-bit shift registers (4-bit mode active when patched), reset for counters)
-    - note: see https://en.wikipedia.org/wiki/Gray_code for info on 5 gray codes
-    - note: counter register is never random, randomness is applied when copying counter register to output register
-
 Audio Rate
 
-8. VCO
+G4. VCO
     - inspiration: Nano ONA
     - Frq: frequency: 20 Hz - 40 kHz
     - Sel: octave 0-7
@@ -135,9 +177,21 @@ Audio Rate
     - v/o: v/oct
     - clk: sync (reset the oscillator phase) / maybe FM is better?
     - rst: pw (additive with Scl)
+    - btn: ?
     
+G5. Envelope Generator
+    - inspiration: Befaco Rampage
+    - Frq: 
+    - Sel: shape
+    - Scl: rise
+    - Off: fall
+    - out: env, falling, rising, eoc, ?
+    - v/o:
+    - clk: trig
+    - rst:
+    - btn: trig
     
-X. Tuning
+G8. Tuning
     - Frq: Input / output to tune (1,2,3,4,5,6,7,8,clk,v/o,rst,-)
     - Sel: output voltage -10, -5, 0, +5, +10 ??
     - Scl: Course Tune
@@ -147,6 +201,13 @@ X. Tuning
     - note: tune outputs first since it will affect input tuning
     - note: tuning is stored to EEPROM when exiting tuning mode
 
+
+To change module function:
+- press and hold reset button for 3 seconds
+- LED flash current module R1-R8, G1-G8
+- press reset button to select module
+- mode will be enabled after 3 seconds since the last button press
+    
 C1: -3V
 C4: 0V
 C8: 4V
@@ -158,15 +219,5 @@ cv outputs are between 10V pp, -10V - 0V and 0V - +10V depending on offset
     scale (0V - +10V) offset (-5V - +5V)
 gate outputs are either 0V or 10V
 
-in 1 functions
-    v/oct, offset cv, frq cv
-in 2 functions
-    clock, sync, s&h
-in 3 functions
-    reset, scale cv
-    
-changing models:
-    press and hold button until leds blink
-    dial frequency knob to desired model (12 models)
-    press and hold button to switch
+
 

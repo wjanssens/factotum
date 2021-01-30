@@ -951,10 +951,10 @@ I2C1_SCL
 Text GLabel 7000 2800 0    50   Input ~ 0
 I2C1_SDA
 $Comp
-L Device:LED_Dual_CAC D4
+L Device:LED_Dual_CAC D1
 U 1 1 60A65F4C
 P 10550 950
-F 0 "D4" H 10550 603 50  0000 C CNN
+F 0 "D1" H 10550 603 50  0000 C CNN
 F 1 "SSL-LX3059IGW-CA" H 10550 694 50  0000 C CNN
 F 2 "LED_THT:LED_D3.0mm-3" H 10600 950 50  0001 C CNN
 F 3 "~" H 10600 950 50  0001 C CNN
@@ -962,10 +962,10 @@ F 3 "~" H 10600 950 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:LED_Dual_CAC D5
+L Device:LED_Dual_CAC D2
 U 1 1 60A6A0C4
 P 10550 1600
-F 0 "D5" H 10550 1253 50  0000 C CNN
+F 0 "D2" H 10550 1253 50  0000 C CNN
 F 1 "SSL-LX3059IGW-CA" H 10550 1344 50  0000 C CNN
 F 2 "LED_THT:LED_D3.0mm-3" H 10600 1600 50  0001 C CNN
 F 3 "~" H 10600 1600 50  0001 C CNN
@@ -973,10 +973,10 @@ F 3 "~" H 10600 1600 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:LED_Dual_CAC D6
+L Device:LED_Dual_CAC D3
 U 1 1 60A6AC6C
 P 10550 2250
-F 0 "D6" H 10550 1903 50  0000 C CNN
+F 0 "D3" H 10550 1903 50  0000 C CNN
 F 1 "SSL-LX3059IGW-CA" H 10550 1994 50  0000 C CNN
 F 2 "LED_THT:LED_D3.0mm-3" H 10600 2250 50  0001 C CNN
 F 3 "~" H 10600 2250 50  0001 C CNN
@@ -984,10 +984,10 @@ F 3 "~" H 10600 2250 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:LED_Dual_CAC D7
+L Device:LED_Dual_CAC D4
 U 1 1 60A6BB95
 P 10550 2900
-F 0 "D7" H 10550 2553 50  0000 C CNN
+F 0 "D4" H 10550 2553 50  0000 C CNN
 F 1 "SSL-LX3059IGW-CA" H 10550 2644 50  0000 C CNN
 F 2 "LED_THT:LED_D3.0mm-3" H 10600 2900 50  0001 C CNN
 F 3 "~" H 10600 2900 50  0001 C CNN
@@ -995,10 +995,10 @@ F 3 "~" H 10600 2900 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:LED_Dual_CAC D8
+L Device:LED_Dual_CAC D5
 U 1 1 60A6C2D7
 P 10550 3550
-F 0 "D8" H 10550 3203 50  0000 C CNN
+F 0 "D5" H 10550 3203 50  0000 C CNN
 F 1 "SSL-LX3059IGW-CA" H 10550 3294 50  0000 C CNN
 F 2 "LED_THT:LED_D3.0mm-3" H 10600 3550 50  0001 C CNN
 F 3 "~" H 10600 3550 50  0001 C CNN
@@ -1006,10 +1006,10 @@ F 3 "~" H 10600 3550 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:LED_Dual_CAC D9
+L Device:LED_Dual_CAC D6
 U 1 1 60A6D4AE
 P 10550 4200
-F 0 "D9" H 10550 3853 50  0000 C CNN
+F 0 "D6" H 10550 3853 50  0000 C CNN
 F 1 "SSL-LX3059IGW-CA" H 10550 3944 50  0000 C CNN
 F 2 "LED_THT:LED_D3.0mm-3" H 10600 4200 50  0001 C CNN
 F 3 "~" H 10600 4200 50  0001 C CNN
@@ -1017,10 +1017,10 @@ F 3 "~" H 10600 4200 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:LED_Dual_CAC D10
+L Device:LED_Dual_CAC D7
 U 1 1 60A6DFC2
 P 10550 4850
-F 0 "D10" H 10550 4503 50  0000 C CNN
+F 0 "D7" H 10550 4503 50  0000 C CNN
 F 1 "SSL-LX3059IGW-CA" H 10550 4594 50  0000 C CNN
 F 2 "LED_THT:LED_D3.0mm-3" H 10600 4850 50  0001 C CNN
 F 3 "~" H 10600 4850 50  0001 C CNN
@@ -1028,10 +1028,10 @@ F 3 "~" H 10600 4850 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:LED_Dual_CAC D11
+L Device:LED_Dual_CAC D8
 U 1 1 60A6EB9B
 P 10550 5500
-F 0 "D11" H 10550 5153 50  0000 C CNN
+F 0 "D8" H 10550 5153 50  0000 C CNN
 F 1 "SSL-LX3059IGW-CA" H 10550 5244 50  0000 C CNN
 F 2 "LED_THT:LED_D3.0mm-3" H 10600 5500 50  0001 C CNN
 F 3 "~" H 10600 5500 50  0001 C CNN
@@ -1375,38 +1375,6 @@ Wire Wire Line
 Connection ~ 2500 4800
 Wire Wire Line
 	2500 4800 2600 4800
-Text GLabel 5400 6700 0    50   Input ~ 0
-T_8
-Text GLabel 6150 6700 2    50   Input ~ 0
-B_8
-Text GLabel 5400 6600 0    50   Input ~ 0
-T_7
-Text GLabel 6150 6600 2    50   Input ~ 0
-B_7
-Text GLabel 6150 6500 2    50   Input ~ 0
-B_6
-Text GLabel 6150 6400 2    50   Input ~ 0
-B_5
-Text GLabel 6150 6300 2    50   Input ~ 0
-B_4
-Text GLabel 6150 6200 2    50   Input ~ 0
-B_3
-Text GLabel 6150 6100 2    50   Input ~ 0
-B_2
-Text GLabel 6150 6000 2    50   Input ~ 0
-B_1
-Text GLabel 5400 6500 0    50   Input ~ 0
-T_6
-Text GLabel 5400 6400 0    50   Input ~ 0
-T_5
-Text GLabel 5400 6300 0    50   Input ~ 0
-T_4
-Text GLabel 5400 6200 0    50   Input ~ 0
-T_3
-Text GLabel 5400 6100 0    50   Input ~ 0
-T_2
-Text GLabel 5400 6000 0    50   Input ~ 0
-T_1
 $Comp
 L power:+3.3V #PWR079
 U 1 1 60482C93
@@ -1436,70 +1404,6 @@ Wire Wire Line
 Wire Wire Line
 	6600 3000 6600 3100
 NoConn ~ 7000 2900
-Wire Wire Line
-	8400 2700 8600 2700
-Wire Wire Line
-	8400 2800 8600 2800
-Wire Wire Line
-	8400 2900 8600 2900
-Wire Wire Line
-	8400 3000 8600 3000
-Wire Wire Line
-	8400 3100 8600 3100
-Wire Wire Line
-	8400 3200 8600 3200
-Wire Wire Line
-	8400 3300 8600 3300
-Wire Wire Line
-	8400 3400 8600 3400
-Wire Wire Line
-	8400 3500 8600 3500
-Wire Wire Line
-	8600 3600 8400 3600
-Wire Wire Line
-	8400 3700 8600 3700
-Wire Wire Line
-	8600 3800 8400 3800
-Wire Wire Line
-	8400 3900 8600 3900
-Wire Wire Line
-	8600 4000 8400 4000
-Wire Wire Line
-	8400 4100 8600 4100
-Wire Wire Line
-	8600 4200 8400 4200
-Text GLabel 9350 2700 2    50   Input ~ 0
-R1_T
-Text GLabel 9350 2800 2    50   Input ~ 0
-G1_T
-Text GLabel 9350 2900 2    50   Input ~ 0
-R2_T
-Text GLabel 9350 3000 2    50   Input ~ 0
-G2_T
-Text GLabel 9350 3100 2    50   Input ~ 0
-R3_T
-Text GLabel 9350 3200 2    50   Input ~ 0
-G3_T
-Text GLabel 9350 3300 2    50   Input ~ 0
-R4_T
-Text GLabel 9350 3400 2    50   Input ~ 0
-G4_T
-Text GLabel 9350 3500 2    50   Input ~ 0
-R5_T
-Text GLabel 9350 3600 2    50   Input ~ 0
-G5_T
-Text GLabel 9350 3700 2    50   Input ~ 0
-R6_T
-Text GLabel 9350 3800 2    50   Input ~ 0
-G6_T
-Text GLabel 9350 3900 2    50   Input ~ 0
-R7_T
-Text GLabel 9350 4000 2    50   Input ~ 0
-G7_T
-Text GLabel 9350 4100 2    50   Input ~ 0
-R8_T
-Text GLabel 9350 4200 2    50   Input ~ 0
-G8_T
 Text GLabel 9950 850  0    50   Input ~ 0
 R1_T
 Text GLabel 9950 1050 0    50   Input ~ 0
@@ -1788,80 +1692,6 @@ Wire Wire Line
 Text Notes 6950 4200 1    50   ~ 0
 addr 1000000x
 $Comp
-L Connector:Conn_01x08_Female J13
-U 1 1 600EC710
-P 5600 6300
-F 0 "J13" H 5450 6750 50  0000 L CNN
-F 1 "Conn_01x08_Female" V 5650 5900 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical" H 5600 6300 50  0001 C CNN
-F 3 "~" H 5600 6300 50  0001 C CNN
-	1    5600 6300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x08_Male J18
-U 1 1 6010E502
-P 5950 6300
-F 0 "J18" H 6100 6750 50  0000 C CNN
-F 1 "Conn_01x08_Male" V 5900 6250 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 5950 6300 50  0001 C CNN
-F 3 "~" H 5950 6300 50  0001 C CNN
-	1    5950 6300
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR0101
-U 1 1 602A7C6E
-P 8500 2500
-F 0 "#PWR0101" H 8500 2350 50  0001 C CNN
-F 1 "+3.3V" H 8515 2673 50  0000 C CNN
-F 2 "" H 8500 2500 50  0001 C CNN
-F 3 "" H 8500 2500 50  0001 C CNN
-	1    8500 2500
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR0102
-U 1 1 602A8C1D
-P 9450 2500
-F 0 "#PWR0102" H 9450 2350 50  0001 C CNN
-F 1 "+3.3V" H 9465 2673 50  0000 C CNN
-F 2 "" H 9450 2500 50  0001 C CNN
-F 3 "" H 9450 2500 50  0001 C CNN
-	1    9450 2500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x17_Female J19
-U 1 1 602C2934
-P 9150 3400
-F 0 "J19" H 9042 2375 50  0000 C CNN
-F 1 "Conn_01x17_Female" V 9200 3300 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x17_P2.54mm_Vertical" H 9150 3400 50  0001 C CNN
-F 3 "~" H 9150 3400 50  0001 C CNN
-	1    9150 3400
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:Conn_01x17_Male J20
-U 1 1 602D94E3
-P 8800 3400
-F 0 "J20" H 8900 2500 50  0000 R CNN
-F 1 "Conn_01x17_Male" V 8750 3650 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x17_P2.54mm_Vertical" H 8800 3400 50  0001 C CNN
-F 3 "~" H 8800 3400 50  0001 C CNN
-	1    8800 3400
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	9350 2600 9450 2600
-Wire Wire Line
-	9450 2600 9450 2500
-Wire Wire Line
-	8600 2600 8500 2600
-Wire Wire Line
-	8500 2600 8500 2500
-$Comp
 L Device:C_Small C32
 U 1 1 601245D2
 P 8250 5600
@@ -1909,4 +1739,36 @@ Wire Wire Line
 Wire Wire Line
 	8600 5900 8600 5700
 Connection ~ 8250 5900
+Text GLabel 8400 2700 2    50   Input ~ 0
+R1_B
+Text GLabel 8400 2800 2    50   Input ~ 0
+G1_B
+Text GLabel 8400 2900 2    50   Input ~ 0
+R2_B
+Text GLabel 8400 3000 2    50   Input ~ 0
+G2_B
+Text GLabel 8400 3100 2    50   Input ~ 0
+R3_B
+Text GLabel 8400 3200 2    50   Input ~ 0
+G3_B
+Text GLabel 8400 3300 2    50   Input ~ 0
+R4_B
+Text GLabel 8400 3400 2    50   Input ~ 0
+G4_B
+Text GLabel 8400 3500 2    50   Input ~ 0
+R5_B
+Text GLabel 8400 3600 2    50   Input ~ 0
+G5_B
+Text GLabel 8400 3700 2    50   Input ~ 0
+R6_B
+Text GLabel 8400 3800 2    50   Input ~ 0
+G6_B
+Text GLabel 8400 3900 2    50   Input ~ 0
+R7_B
+Text GLabel 8400 4000 2    50   Input ~ 0
+G7_B
+Text GLabel 8400 4100 2    50   Input ~ 0
+R8_B
+Text GLabel 8400 4200 2    50   Input ~ 0
+G8_B
 $EndSCHEMATC
