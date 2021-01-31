@@ -960,29 +960,29 @@ Text GLabel 1900 7200 2    50   Input ~ 0
 B_CLK_SW
 Text GLabel 1900 7400 2    50   Input ~ 0
 B_RST_SW
-Text GLabel 3500 6900 0    50   Input ~ 0
+Text GLabel 3500 7300 0    50   Input ~ 0
 R3_T
-Text GLabel 3500 6800 0    50   Input ~ 0
+Text GLabel 3500 7200 0    50   Input ~ 0
 G3_T
-Text GLabel 3500 6700 0    50   Input ~ 0
+Text GLabel 3500 7100 0    50   Input ~ 0
 R4_T
-Text GLabel 3500 6600 0    50   Input ~ 0
+Text GLabel 3500 7000 0    50   Input ~ 0
 G4_T
-Text GLabel 3500 6400 0    50   Input ~ 0
+Text GLabel 3500 6900 0    50   Input ~ 0
 R5_T
-Text GLabel 3500 6300 0    50   Input ~ 0
+Text GLabel 3500 6800 0    50   Input ~ 0
 G5_T
-Text GLabel 3500 6200 0    50   Input ~ 0
+Text GLabel 3500 6700 0    50   Input ~ 0
 R6_T
-Text GLabel 3500 6100 0    50   Input ~ 0
+Text GLabel 3500 6600 0    50   Input ~ 0
 G6_T
-Text GLabel 3500 6000 0    50   Input ~ 0
+Text GLabel 3500 6400 0    50   Input ~ 0
 R7_T
-Text GLabel 3500 5900 0    50   Input ~ 0
+Text GLabel 3500 6300 0    50   Input ~ 0
 G7_T
-Text GLabel 3500 5800 0    50   Input ~ 0
+Text GLabel 3500 6200 0    50   Input ~ 0
 R8_T
-Text GLabel 3500 5700 0    50   Input ~ 0
+Text GLabel 3500 6100 0    50   Input ~ 0
 G8_T
 $Comp
 L power:+3.3V #PWR?
@@ -1036,49 +1036,49 @@ F 3 "~" H 4050 6500 50  0001 C CNN
 	1    4050 6500
 	1    0    0    -1  
 $EndComp
-Text GLabel 4250 7300 2    50   Input ~ 0
-R1_B
-Text GLabel 4250 7200 2    50   Input ~ 0
-G1_B
-Text GLabel 4250 7100 2    50   Input ~ 0
-R2_B
-Text GLabel 4250 7000 2    50   Input ~ 0
-G2_B
-Text GLabel 4250 6900 2    50   Input ~ 0
-R3_B
-Text GLabel 4250 6800 2    50   Input ~ 0
-G3_B
-Text GLabel 4250 6700 2    50   Input ~ 0
-R4_B
-Text GLabel 4250 6600 2    50   Input ~ 0
-G4_B
-Text GLabel 4250 6400 2    50   Input ~ 0
-R5_B
-Text GLabel 4250 6300 2    50   Input ~ 0
-G5_B
-Text GLabel 4250 6200 2    50   Input ~ 0
-R6_B
-Text GLabel 4250 6100 2    50   Input ~ 0
-G6_B
 Text GLabel 4250 6000 2    50   Input ~ 0
-R7_B
+R1_B
 Text GLabel 4250 5900 2    50   Input ~ 0
-G7_B
+G1_B
 Text GLabel 4250 5800 2    50   Input ~ 0
-R8_B
+R2_B
 Text GLabel 4250 5700 2    50   Input ~ 0
+G2_B
+Text GLabel 4250 7300 2    50   Input ~ 0
+R3_B
+Text GLabel 4250 7200 2    50   Input ~ 0
+G3_B
+Text GLabel 4250 7100 2    50   Input ~ 0
+R4_B
+Text GLabel 4250 7000 2    50   Input ~ 0
+G4_B
+Text GLabel 4250 6900 2    50   Input ~ 0
+R5_B
+Text GLabel 4250 6800 2    50   Input ~ 0
+G5_B
+Text GLabel 4250 6700 2    50   Input ~ 0
+R6_B
+Text GLabel 4250 6600 2    50   Input ~ 0
+G6_B
+Text GLabel 4250 6400 2    50   Input ~ 0
+R7_B
+Text GLabel 4250 6300 2    50   Input ~ 0
+G7_B
+Text GLabel 4250 6200 2    50   Input ~ 0
+R8_B
+Text GLabel 4250 6100 2    50   Input ~ 0
 G8_B
 Wire Wire Line
 	850  6200 1150 6200
 Wire Wire Line
 	2250 6200 1900 6200
-Text GLabel 3500 7000 0    50   Input ~ 0
+Text GLabel 3500 5700 0    50   Input ~ 0
 G2_T
-Text GLabel 3500 7100 0    50   Input ~ 0
+Text GLabel 3500 5800 0    50   Input ~ 0
 R2_T
-Text GLabel 3500 7200 0    50   Input ~ 0
+Text GLabel 3500 5900 0    50   Input ~ 0
 G1_T
-Text GLabel 3500 7300 0    50   Input ~ 0
+Text GLabel 3500 6000 0    50   Input ~ 0
 R1_T
 Wire Wire Line
 	4250 6500 4550 6500

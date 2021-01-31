@@ -585,7 +585,6 @@ Wire Wire Line
 NoConn ~ 6300 2750
 NoConn ~ 6300 3050
 NoConn ~ 6300 3150
-NoConn ~ 6300 3450
 NoConn ~ 6300 3750
 NoConn ~ 6300 3850
 NoConn ~ 6300 4050
@@ -676,7 +675,7 @@ F 3 "~" H 4700 3650 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4800 3650 4900 3650
-Text GLabel 6300 1950 2    50   Input ~ 0
+Text GLabel 6300 3450 2    50   Input ~ 0
 B_MODE_SW
 $Comp
 L Memory_EEPROM:M24C02-RMN U8
@@ -787,8 +786,8 @@ L Connector:Conn_01x08_Female J?
 U 1 1 60187068
 P 1300 5100
 AR Path="/6088BCB1/60187068" Ref="J?"  Part="1" 
-AR Path="/60187068" Ref="J?"  Part="1" 
-F 0 "J?" H 1150 5550 50  0000 L CNN
+AR Path="/60187068" Ref="J4"  Part="1" 
+F 0 "J4" H 1150 5550 50  0000 L CNN
 F 1 "Conn_01x08_Female" V 1350 4700 50  0000 L CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical" H 1300 5100 50  0001 C CNN
 F 3 "~" H 1300 5100 50  0001 C CNN
@@ -800,8 +799,8 @@ L Connector:Conn_01x08_Male J?
 U 1 1 6018706E
 P 1650 5100
 AR Path="/6088BCB1/6018706E" Ref="J?"  Part="1" 
-AR Path="/6018706E" Ref="J?"  Part="1" 
-F 0 "J?" H 1800 5550 50  0000 C CNN
+AR Path="/6018706E" Ref="J18"  Part="1" 
+F 0 "J18" H 1800 5550 50  0000 C CNN
 F 1 "Conn_01x08_Male" V 1600 5050 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 1650 5100 50  0001 C CNN
 F 3 "~" H 1650 5100 50  0001 C CNN
@@ -845,8 +844,8 @@ L power:+3.3VA #PWR?
 U 1 1 6019FE4A
 P 850 6200
 AR Path="/606FF2F2/6019FE4A" Ref="#PWR?"  Part="1" 
-AR Path="/6019FE4A" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 850 6050 50  0001 C CNN
+AR Path="/6019FE4A" Ref="#PWR0101"  Part="1" 
+F 0 "#PWR0101" H 850 6050 50  0001 C CNN
 F 1 "+3.3VA" H 865 6373 50  0000 C CNN
 F 2 "" H 850 6200 50  0001 C CNN
 F 3 "" H 850 6200 50  0001 C CNN
@@ -858,8 +857,8 @@ L power:+3.3VA #PWR?
 U 1 1 6019FE50
 P 2250 6200
 AR Path="/606FF2F2/6019FE50" Ref="#PWR?"  Part="1" 
-AR Path="/6019FE50" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2250 6050 50  0001 C CNN
+AR Path="/6019FE50" Ref="#PWR0102"  Part="1" 
+F 0 "#PWR0102" H 2250 6050 50  0001 C CNN
 F 1 "+3.3VA" H 2265 6373 50  0000 C CNN
 F 2 "" H 2250 6200 50  0001 C CNN
 F 3 "" H 2250 6200 50  0001 C CNN
@@ -867,12 +866,12 @@ F 3 "" H 2250 6200 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0103
 U 1 1 6019FE56
 P 850 7600
-AR Path="/6019FE56" Ref="#PWR?"  Part="1" 
+AR Path="/6019FE56" Ref="#PWR0103"  Part="1" 
 AR Path="/606FF2F2/6019FE56" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 850 7350 50  0001 C CNN
+F 0 "#PWR0103" H 850 7350 50  0001 C CNN
 F 1 "GND" V 950 7650 50  0000 R CNN
 F 2 "" H 850 7600 50  0001 C CNN
 F 3 "" H 850 7600 50  0001 C CNN
@@ -880,12 +879,12 @@ F 3 "" H 850 7600 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0104
 U 1 1 6019FE5C
 P 2200 7600
-AR Path="/6019FE5C" Ref="#PWR?"  Part="1" 
+AR Path="/6019FE5C" Ref="#PWR0104"  Part="1" 
 AR Path="/606FF2F2/6019FE5C" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2200 7350 50  0001 C CNN
+F 0 "#PWR0104" H 2200 7350 50  0001 C CNN
 F 1 "GND" V 2100 7650 50  0000 R CNN
 F 2 "" H 2200 7600 50  0001 C CNN
 F 3 "" H 2200 7600 50  0001 C CNN
@@ -897,8 +896,8 @@ L Connector:Conn_01x05_Female J?
 U 1 1 6019FE64
 P 1350 6200
 AR Path="/606FF2F2/6019FE64" Ref="J?"  Part="1" 
-AR Path="/6019FE64" Ref="J?"  Part="1" 
-F 0 "J?" H 1200 6500 50  0000 L CNN
+AR Path="/6019FE64" Ref="J6"  Part="1" 
+F 0 "J6" H 1200 6500 50  0000 L CNN
 F 1 "Conn_01x05_Female" V 1400 6000 50  0000 L CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Vertical" H 1350 6200 50  0001 C CNN
 F 3 "~" H 1350 6200 50  0001 C CNN
@@ -910,8 +909,8 @@ L Connector:Conn_01x05_Male J?
 U 1 1 6019FE6A
 P 1700 6200
 AR Path="/606FF2F2/6019FE6A" Ref="J?"  Part="1" 
-AR Path="/6019FE6A" Ref="J?"  Part="1" 
-F 0 "J?" H 1750 6500 50  0000 C CNN
+AR Path="/6019FE6A" Ref="J19"  Part="1" 
+F 0 "J19" H 1750 6500 50  0000 C CNN
 F 1 "Conn_01x05_Male" V 1600 6300 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 1700 6200 50  0001 C CNN
 F 3 "~" H 1700 6200 50  0001 C CNN
@@ -927,9 +926,9 @@ L Connector:Conn_01x08_Female J?
 U 1 1 6019FE72
 P 1350 7200
 AR Path="/606FF2F2/6019FE72" Ref="J?"  Part="1" 
-AR Path="/6019FE72" Ref="J?"  Part="1" 
-F 0 "J?" H 1250 7600 50  0000 L CNN
-F 1 "Conn_01x08_Female" V 1650 6800 50  0000 L CNN
+AR Path="/6019FE72" Ref="J13"  Part="1" 
+F 0 "J13" H 1250 7600 50  0000 L CNN
+F 1 "Conn_01x08_Female" V 1400 6800 50  0000 L CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical" H 1350 7200 50  0001 C CNN
 F 3 "~" H 1350 7200 50  0001 C CNN
 	1    1350 7200
@@ -940,9 +939,9 @@ L Connector:Conn_01x08_Male J?
 U 1 1 6019FE78
 P 1700 7200
 AR Path="/606FF2F2/6019FE78" Ref="J?"  Part="1" 
-AR Path="/6019FE78" Ref="J?"  Part="1" 
-F 0 "J?" H 1800 7600 50  0000 C CNN
-F 1 "Conn_01x08_Male" V 1400 7200 50  0000 C CNN
+AR Path="/6019FE78" Ref="J20"  Part="1" 
+F 0 "J20" H 1800 7600 50  0000 C CNN
+F 1 "Conn_01x08_Male" V 1650 7150 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 1700 7200 50  0001 C CNN
 F 3 "~" H 1700 7200 50  0001 C CNN
 	1    1700 7200
@@ -989,8 +988,8 @@ L power:+3.3V #PWR?
 U 1 1 601C955B
 P 4550 6500
 AR Path="/6088BCB1/601C955B" Ref="#PWR?"  Part="1" 
-AR Path="/601C955B" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 4550 6350 50  0001 C CNN
+AR Path="/601C955B" Ref="#PWR0106"  Part="1" 
+F 0 "#PWR0106" H 4550 6350 50  0001 C CNN
 F 1 "+3.3V" H 4565 6673 50  0000 C CNN
 F 2 "" H 4550 6500 50  0001 C CNN
 F 3 "" H 4550 6500 50  0001 C CNN
@@ -1002,8 +1001,8 @@ L power:+3.3V #PWR?
 U 1 1 601C9561
 P 3250 6500
 AR Path="/6088BCB1/601C9561" Ref="#PWR?"  Part="1" 
-AR Path="/601C9561" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 3250 6350 50  0001 C CNN
+AR Path="/601C9561" Ref="#PWR0107"  Part="1" 
+F 0 "#PWR0107" H 3250 6350 50  0001 C CNN
 F 1 "+3.3V" H 3265 6673 50  0000 C CNN
 F 2 "" H 3250 6500 50  0001 C CNN
 F 3 "" H 3250 6500 50  0001 C CNN
@@ -1015,8 +1014,8 @@ L Connector:Conn_01x17_Female J?
 U 1 1 601C9567
 P 3700 6500
 AR Path="/6088BCB1/601C9567" Ref="J?"  Part="1" 
-AR Path="/601C9567" Ref="J?"  Part="1" 
-F 0 "J?" H 3592 5475 50  0000 C CNN
+AR Path="/601C9567" Ref="J21"  Part="1" 
+F 0 "J21" H 3592 5475 50  0000 C CNN
 F 1 "Conn_01x17_Female" V 3750 6400 50  0000 C CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x17_P2.54mm_Vertical" H 3700 6500 50  0001 C CNN
 F 3 "~" H 3700 6500 50  0001 C CNN
@@ -1028,8 +1027,8 @@ L Connector:Conn_01x17_Male J?
 U 1 1 601C956D
 P 4050 6500
 AR Path="/6088BCB1/601C956D" Ref="J?"  Part="1" 
-AR Path="/601C956D" Ref="J?"  Part="1" 
-F 0 "J?" H 4150 5600 50  0000 R CNN
+AR Path="/601C956D" Ref="J22"  Part="1" 
+F 0 "J22" H 4150 5600 50  0000 R CNN
 F 1 "Conn_01x17_Male" V 4000 6750 50  0000 R CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x17_P2.54mm_Vertical" H 4050 6500 50  0001 C CNN
 F 3 "~" H 4050 6500 50  0001 C CNN
@@ -1084,4 +1083,5 @@ Wire Wire Line
 	4250 6500 4550 6500
 Wire Wire Line
 	3500 6500 3250 6500
+NoConn ~ 6300 1950
 $EndSCHEMATC
